@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
-* Студент: [Hamlet Ghumashyan](https://up.htmlacademy.ru/javascript/24/user/1712883).
-* Наставник: `Неизвестно`.
+- Студент: [Hamlet Ghumashyan](https://up.htmlacademy.ru/javascript/24/user/1712883).
+- Наставник: [Алексей Михеев](https://htmlacademy.ru/profile/id454457).
 
 ---
 
