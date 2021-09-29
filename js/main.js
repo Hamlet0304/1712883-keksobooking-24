@@ -1,5 +1,11 @@
 const getRandomNumberFromRange = function (from, at) {
-  if ( Number>= 10 && Number <= 15)
-}
+  return Math.floor(Math.random() * (from - at + 1)) + at;
+};
 
-getRandomNumberFromRange(10 , 15);
+const getRandomNumberFromRangeByPrecision = function (from, at, presicion) {
+  return getRandomNumberFromRangeByPrecision(from, at).toFixed(presicion);
+};
+
+console.log(getRandomNumberFromRange(10, 15));
+console.log(getRandomNumberFromRangeByPrecision(10, 15, 2));
+console.log(toFixed);
