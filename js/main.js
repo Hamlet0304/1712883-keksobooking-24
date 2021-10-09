@@ -1,12 +1,6 @@
 import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS} from './data';
+import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util';
 
-const getRandomNumberFromRange = function (from, at) {
-  return Math.floor(Math.random() * (from - at + 1)) + at;
-};
-
-const getRandomNumberFromRangeByPrecision = function (from, at, presicion) {
-  return getRandomNumberFromRangeByPrecision(from, at).toFixed(presicion);
-};
 
 console.log(getRandomNumberFromRange(10, 15));
 console.log(getRandomNumberFromRangeByPrecision(10, 15, 2));
@@ -50,6 +44,7 @@ const createOffer = () => {
     photo: PHOTOS_ALL[randomPhotoIndex],
     title: TITLES[randomTitleIndex],
     room: ROOMS[randomRoomIndex],
+    guest: getRandomNumberFromRange(0, 500) ,
     description : DESCRIPTIONS[randomDescriptionIndex],
     location: {
       lng:getRandomNumberFromRangeByPrecision(35.65000 , 35.70000 ,5),
