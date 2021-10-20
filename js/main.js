@@ -1,10 +1,10 @@
-import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS} from './data';
-import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util';
-
+import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS} from './data.js';
+import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util.js';
+import { randerPopup } from './setup.js';
 
 console.log(getRandomNumberFromRange(10, 15));
 console.log(getRandomNumberFromRangeByPrecision(10, 15, 2));
-console.log(toFixed);
+
 
 
 const getAvatarNumber = function () {
@@ -25,11 +25,6 @@ const createOffer = () => {
   const randomRoomIndex = _.random(0, TYPES.length - 1);
   const randomDescriptionIndex = _.random(0, TYPES.length - 1);
 
-  // const name = "Vasya";
-  // const name1 = name;
-  // const age = 32;
-  // const people  = { name: "Vasya", age 32 };
-  // const male = true;
 
 
   return {
@@ -53,6 +48,14 @@ const createOffer = () => {
   };
 };
 
-console.log(
-  createOffer()
-);
+// console.log(
+const offer = createOffer();
+const popup = randerPopup(offer);
+const mapCanvas = document.querySelector('#map-canvas');
+mapCanvas.appendChild(popup);
+// );
+
+// const returValue = function (a , b) {
+//   return a + b
+// }
+// const value = returValue(1 ,2)
