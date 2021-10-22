@@ -1,5 +1,5 @@
 const OfferType = { FLAT: 'flat', BUNGALOW: 'bungalow', HOUSE: 'house', PALACE: 'palace', HOTEL:'hotel'};
-const TYPES = [OfferType.PALACE, OfferType.FLAT, OfferType.HOUSE, OfferType.BUNGALOW, OfferType.HOTEL ];
+const TYPES = [OfferType.PALACE, OfferType.FLAT, OfferType.HOUSE, OfferType.BUNGALOW, OfferType.HOTEL];
 const CHECKINS = ['12:00', '13:00', '14:00'];
 const CHECKOUTS = ['12:00', '13:00', '14:00'];
 const FEATURES_ALL = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];

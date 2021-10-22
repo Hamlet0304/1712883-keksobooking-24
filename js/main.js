@@ -19,8 +19,6 @@ const createOffer = () => {
   const randomTypeIndex = _.random(0, TYPES.length - 1);
   const randomCheckinIndex = _.random(0, CHECKINS.length - 1);
   const randomCheckoutIndex = _.random(0, CHECKOUTS.length - 1);
-  const randomFeatureIndex = _.random(0, FEATURES_ALL.length - 1);
-  const randomPhotoIndex = _.random(0, PHOTOS_ALL.length - 1);
   const randomTitleIndex = _.random(0, TYPES.length - 1);
   const randomRoomIndex = _.random(0, TYPES.length - 1);
   const randomDescriptionIndex = _.random(0, TYPES.length - 1);
@@ -35,8 +33,8 @@ const createOffer = () => {
     type:TYPES[randomTypeIndex],
     checkin:CHECKINS[randomCheckinIndex] ,
     checkout:CHECKOUTS[randomCheckoutIndex] ,
-    feature:FEATURES_ALL[randomFeatureIndex] ,
-    photo: PHOTOS_ALL[randomPhotoIndex],
+    feature:FEATURES_ALL,
+    photos:PHOTOS_ALL,
     title: TITLES[randomTitleIndex],
     room: ROOMS[randomRoomIndex],
     guest: getRandomNumberFromRange(0, 500) ,

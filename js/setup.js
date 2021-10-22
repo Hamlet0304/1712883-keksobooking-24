@@ -1,18 +1,46 @@
-import { OfferType } from './data.js';
+import { OfferType} from './data.js';
 
-function updateGuests(guestsElement = roomsDefault(rooms). guestsDefault(guests)) {
-  return (2 + 'rooms' + для + 3 + 'guests');
+function getGuestsText(rooms,guests) {
+  return `${rooms} комнаты для ${guests} гостей`;
+}
 
-function roomsDefault() {
-  return 'Уточняйте количество'
-};
+function getTimeText(checkin,checkout) {
+  return `Заезд после ${checkin}, выезд до ${checkout}`;
+}
 
-function  updateTime( timeElement = checkinOrDefault(checkin). checkoutOrDefault(checkout)) {
-  return (Заезд + после + 'checkin' + выезд + до + 'checkout');
+function renderPhotos(photos, container) {
+  const imgTemplate = container.querySelector('.popup__photo');
 
-function checkinOrDefault() {
-  return 'Уточняйте количество'
-};
+  container.innerHTML = '';
+
+  const fragment = document.createDocumentFragment();
+
+  photos.forEach((photo) => {
+    const photoElement = imgTemplate.cloneNode();
+    photoElement.src = photo;
+
+    fragment.appendChild(photoElement);
+  });
+
+  container.appendChild(fragment);
+}
+
+// function renderFeatures(features, container) {
+//   const feature = container.querySelector('.popup__feature .popup__feature--wifi');
+
+//   container.innerHTML = '';
+
+//   const fragment = document.createDocumentFragment();
+
+//   features.forEach((feature) => {
+//     const featureElement = feature.cloneNode();
+//     featureElement = feature;
+
+//     fragment.appendChild(featureElement);
+//   });
+
+//   container.appendChild(fragment);
+// }
 
 const getDisplayValue = function (offerType) {
 
@@ -34,19 +62,32 @@ const getDisplayValue = function (offerType) {
 const content = document.querySelector('#card').content;
 
 const randerPopup = function (offer) {
+
+  const {
+    title,
+    address,
+    price,
+    description,
+    photos,
+  } = offer;
+
   const card = content.cloneNode(true);
-  const title = card.querySelector('.popup__title');
-  title.textContent = offer.title;
-  const address = card.querySelector('.popup__text--address');
-  address.textContent = offer.address;
-  const price = card.querySelector('.popup__text--price');
-  price.textContent = offer.price;
-  const description = card.querySelector('.popup__description');
-  description.textContent = offer.description;
-  // const photos = card.querySelector('.popup__photos');
-  // photos.textContent = offer.photos;
+
+  card.querySelector('.popup__title').textContent = title;
+  card.querySelector('.popup__text--address').textContent =address;
+  card.querySelector('.popup__text--price').textContent = price;
+  card.querySelector('.popup__description').textContent = description;
   const type = card.querySelector('.popup__type');
   type.textContent = getDisplayValue(offer.type);
+  const capacity = card.querySelector('.popup__text--capacity');
+  capacity.textContent = getGuestsText(offer.rooms , offer.guests);
+  const time = card.querySelector('.popup__text--time');
+  time.textContent = getTimeText(offer.checkin, offer.checkout);
+  const photosElement = card.querySelector('.popup__photos');
+  renderPhotos(photos, photosElement);
+
+  // const featureElement = card.querySelector('.popup__feature');
+  // renderFeatures(features , featureElement);
 
   return card;
 };
