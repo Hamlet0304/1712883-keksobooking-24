@@ -25,22 +25,22 @@ function renderPhotos(photos, container) {
   container.appendChild(fragment);
 }
 
-// function renderFeatures(features, container) {
-//   const feature = container.querySelector('.popup__feature .popup__feature--wifi');
+function renderFeatures(features, container) {
+  const featureTemplate = container.querySelector('.popup__feature');
 
-//   container.innerHTML = '';
+  container.innerHTML = '';
 
-//   const fragment = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
 
-//   features.forEach((feature) => {
-//     const featureElement = feature.cloneNode();
-//     featureElement = feature;
+  features.forEach((feature) => {
+    const featureElement = featureTemplate.cloneNode();
+    featureElement.className = `popup__feature popup__feature--${feature}`;
 
-//     fragment.appendChild(featureElement);
-//   });
+    fragment.appendChild(featureElement);
+  });
 
-//   container.appendChild(fragment);
-// }
+  container.appendChild(fragment);
+}
 
 const getDisplayValue = function (offerType) {
 
@@ -69,6 +69,7 @@ const randerPopup = function (offer) {
     price,
     description,
     photos,
+    features,
   } = offer;
 
   const card = content.cloneNode(true);
@@ -85,9 +86,8 @@ const randerPopup = function (offer) {
   time.textContent = getTimeText(offer.checkin, offer.checkout);
   const photosElement = card.querySelector('.popup__photos');
   renderPhotos(photos, photosElement);
-
-  // const featureElement = card.querySelector('.popup__feature');
-  // renderFeatures(features , featureElement);
+  const featureElement = card.querySelector('.popup__features');
+  renderFeatures(features , featureElement);
 
   return card;
 };
