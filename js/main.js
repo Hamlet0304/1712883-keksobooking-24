@@ -6,7 +6,6 @@ console.log(getRandomNumberFromRange(10, 15));
 console.log(getRandomNumberFromRangeByPrecision(10, 15, 2));
 
 
-
 const getAvatarNumber = function () {
   const randomNumber = getRandomNumberFromRange(0, 10);
   if (randomNumber < 10) {
@@ -22,7 +21,6 @@ const createOffer = () => {
   const randomTitleIndex = _.random(0, TYPES.length - 1);
   const randomRoomIndex = _.random(0, TYPES.length - 1);
   const randomDescriptionIndex = _.random(0, TYPES.length - 1);
-
 
 
   return {
@@ -46,14 +44,7 @@ const createOffer = () => {
   };
 };
 
-// console.log(
 const offer = createOffer();
 const popup = randerPopup(offer);
 const mapCanvas = document.querySelector('#map-canvas');
 mapCanvas.appendChild(popup);
-// );
-
-// const returValue = function (a , b) {
-//   return a + b
-// }
-// const value = returValue(1 ,2)

@@ -8,7 +8,7 @@ function getTimeText(checkin,checkout) {
   return `Заезд после ${checkin}, выезд до ${checkout}`;
 }
 
-function renderPhotos(photos, container) {
+function randerPhotos(photos, container) {
   const imgTemplate = container.querySelector('.popup__photo');
 
   container.innerHTML = '';
@@ -25,7 +25,7 @@ function renderPhotos(photos, container) {
   container.appendChild(fragment);
 }
 
-function renderFeatures(features, container) {
+function randerFeatures(features, container) {
   const featureTemplate = container.querySelector('.popup__feature');
 
   container.innerHTML = '';
@@ -58,26 +58,24 @@ const getDisplayValue = function (offerType) {
   }
 };
 
-
 const content = document.querySelector('#card').content;
 
 const randerPopup = function (offer) {
 
   const {
-    title,
-    address,
-    price,
-    description,
     photos,
     features,
   } = offer;
 
   const card = content.cloneNode(true);
-
-  card.querySelector('.popup__title').textContent = title;
-  card.querySelector('.popup__text--address').textContent =address;
-  card.querySelector('.popup__text--price').textContent = price;
-  card.querySelector('.popup__description').textContent = description;
+  const title = card.querySelector('.popup__title');
+  title.textContent = offer.title;
+  const address = card.querySelector('.popup__text--address');
+  address.textContent = offer.address;
+  const price = card.querySelector('.popup__text--price');
+  price.textContent = offer.price;
+  const description = card.querySelector('.popup__description');
+  description.textContent = offer.description;
   const type = card.querySelector('.popup__type');
   type.textContent = getDisplayValue(offer.type);
   const capacity = card.querySelector('.popup__text--capacity');
@@ -85,24 +83,12 @@ const randerPopup = function (offer) {
   const time = card.querySelector('.popup__text--time');
   time.textContent = getTimeText(offer.checkin, offer.checkout);
   const photosElement = card.querySelector('.popup__photos');
-  renderPhotos(photos, photosElement);
+  randerPhotos(photos, photosElement);
   const featureElement = card.querySelector('.popup__features');
-  renderFeatures(features , featureElement);
+  randerFeatures(features , featureElement);
 
   return card;
 };
 
 
-  export { randerPopup };
-
-
-
-  // const obj1 = {
-  // title: 'петя'
-  // }
-
-  // const obj = {
-  // textContent: 'Вася'
-  // }
-
-  // obj.textContent = obj1.title;
+export { randerPopup };
