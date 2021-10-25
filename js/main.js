@@ -1,10 +1,9 @@
-import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS} from './data';
-import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util';
-
+import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS} from './data.js';
+import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util.js';
+import { randerPopup } from './setup.js';
 
 console.log(getRandomNumberFromRange(10, 15));
 console.log(getRandomNumberFromRangeByPrecision(10, 15, 2));
-console.log(toFixed);
 
 
 const getAvatarNumber = function () {
@@ -19,17 +18,9 @@ const createOffer = () => {
   const randomTypeIndex = _.random(0, TYPES.length - 1);
   const randomCheckinIndex = _.random(0, CHECKINS.length - 1);
   const randomCheckoutIndex = _.random(0, CHECKOUTS.length - 1);
-  const randomFeatureIndex = _.random(0, FEATURES_ALL.length - 1);
-  const randomPhotoIndex = _.random(0, PHOTOS_ALL.length - 1);
   const randomTitleIndex = _.random(0, TYPES.length - 1);
   const randomRoomIndex = _.random(0, TYPES.length - 1);
   const randomDescriptionIndex = _.random(0, TYPES.length - 1);
-
-  // const name = "Vasya";
-  // const name1 = name;
-  // const age = 32;
-  // const people  = { name: "Vasya", age 32 };
-  // const male = true;
 
 
   return {
@@ -40,11 +31,11 @@ const createOffer = () => {
     type:TYPES[randomTypeIndex],
     checkin:CHECKINS[randomCheckinIndex] ,
     checkout:CHECKOUTS[randomCheckoutIndex] ,
-    feature:FEATURES_ALL[randomFeatureIndex] ,
-    photo: PHOTOS_ALL[randomPhotoIndex],
+    features:FEATURES_ALL,
+    photos:PHOTOS_ALL,
     title: TITLES[randomTitleIndex],
-    room: ROOMS[randomRoomIndex],
-    guest: getRandomNumberFromRange(0, 500) ,
+    rooms: ROOMS[randomRoomIndex],
+    guests: getRandomNumberFromRange(0, 500) ,
     description : DESCRIPTIONS[randomDescriptionIndex],
     location: {
       lng:getRandomNumberFromRangeByPrecision(35.65000 , 35.70000 ,5),
@@ -53,6 +44,7 @@ const createOffer = () => {
   };
 };
 
-console.log(
-  createOffer()
-);
+const offer = createOffer();
+const popup = randerPopup(offer);
+const mapCanvas = document.querySelector('#map-canvas');
+mapCanvas.appendChild(popup);

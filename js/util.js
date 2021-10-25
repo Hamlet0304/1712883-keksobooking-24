@@ -3,7 +3,7 @@ const getRandomNumberFromRange = function (from, at) {
 };
 
 const getRandomNumberFromRangeByPrecision = function (from, at, presicion) {
-  return getRandomNumberFromRangeByPrecision(from, at).toFixed(presicion);
+  return getRandomNumberFromRange(from, at).toFixed(presicion);
 };
 
 export {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision };
