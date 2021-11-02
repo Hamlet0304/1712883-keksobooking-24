@@ -1,6 +1,6 @@
 const adForm = document.querySelector('.ad-form');
 const adFormFieldsets = adForm.querySelector('fieldset');
-const adFormFilter = adForm.querySelector('');
+const adFormFilter = adForm.querySelector('filter');
 const adFormFilterSelects = adForm.querySelector('select');
 const adFormFilterFildsets  = adForm.querySelector('fieldset');
 
@@ -18,9 +18,13 @@ function changeStateAdFrom(isEnablad) {
 
 function changeStateFilterFrom(isEnablad) {
   if (isEnablad) {
-
+    adFormFilter.classList.remove('filter');
+    adFormFilterSelects.classList.remove('select');
+    adFormFilterFildsets.classList.remove('fieldset');
   } else {
-
+    adFormFilter.classList.add('filter');
+    adFormFilterSelects.classList.add('select');
+    adFormFilterFildsets.classList.add('fieldset');
   }
 }
 

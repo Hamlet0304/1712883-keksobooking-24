@@ -2,6 +2,7 @@ import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DES
 import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util.js';
 import { randerPopup } from './setup.js';
 
+
 console.log(getRandomNumberFromRange(10, 15));
 console.log(getRandomNumberFromRangeByPrecision(10, 15, 2));
 
@@ -43,6 +44,7 @@ const createOffer = () => {
     },
   };
 };
+
 
 const offer = createOffer();
 const popup = randerPopup(offer);
