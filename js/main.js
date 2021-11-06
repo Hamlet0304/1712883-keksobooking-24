@@ -1,6 +1,7 @@
 import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS} from './data.js';
 import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util.js';
 import { randerPopup } from './setup.js';
+import { enabladForm, disabledForm, initEvent } from './form.js';
 
 
 console.log(getRandomNumberFromRange(10, 15));
@@ -45,7 +46,7 @@ const createOffer = () => {
   };
 };
 
-
+initEvent();
 const offer = createOffer();
 const popup = randerPopup(offer);
 const mapCanvas = document.querySelector('#map-canvas');
