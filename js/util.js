@@ -1,4 +1,5 @@
-import { OfferType} from './data.js';
+import { OfferType } from './data.js';
+
 const getRandomNumberFromRange = function (from, at) {
   return Math.floor(Math.random() * (from - at + 1)) + at;
 };

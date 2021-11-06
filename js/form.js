@@ -83,7 +83,7 @@ const initPriceEvent = () => {
 const initTypeEvent = () => {
   typeInput.addEventListener('change', (evt) => {
 
-    const minValue = getPriceMinValue('bungalow', 'flat', 'house', 'palace', 'hotel' );
+    const minValue = getPriceMinValue( evt.target.value );
 
     priceInput.placeholder = minValue;
   });
