@@ -1,4 +1,4 @@
-import { OfferType } from './data.js';
+import { OfferPrice ,OfferType } from './data.js';
 
 const getRandomNumberFromRange = function (from, at) {
   return Math.floor(Math.random() * (from - at + 1)) + at;
@@ -10,20 +10,21 @@ const getRandomNumberFromRangeByPrecision = function (from, at, presicion) {
 
 export {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision };
 
-const getPriceMinValue = function (offerType) {
+const getPriceMinValue = function (offerPrice) {
 
-  switch (offerType) {
+  switch (offerPrice) {
     case OfferType.FLAT:
-      return 1000;
+      return OfferPrice.FLAT;
     case OfferType.BUNGALOW:
-      return 0;
+      return OfferPrice.BUNGALOW;
     case OfferType.HOUSE:
-      return 5000;
+      return OfferPrice.HOUSE;
     case OfferType.PALACE:
-      return 10000;
+      return OfferPrice.PALACE;
     case OfferType.HOTEL:
-      return  3000;
+      return OfferPrice.HOTEL;
   }
 };
+
 
 export { getPriceMinValue };

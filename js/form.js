@@ -1,4 +1,4 @@
-import { getPriceMinValue } from './util.js';
+import { getPriceMinValue} from './util.js';
 
 const adForm = document.querySelector('.ad-form');
 const adFormFieldsets = adForm.querySelector('fieldset');
@@ -83,12 +83,11 @@ const initPriceEvent = () => {
 const initTypeEvent = () => {
   typeInput.addEventListener('change', (evt) => {
 
-    const minValue = getPriceMinValue( evt.target.value );
+    const minValue = getPriceMinValue( evt.target.value);
 
     priceInput.placeholder = minValue;
   });
 };
-
 
 const initEvent = () => {
   initTitleEvent();
