@@ -1,4 +1,4 @@
-import { getPriceMinValue} from './util.js';
+import { getPriceMinValue ,getRoomErrorMassage} from './util.js';
 
 const adForm = document.querySelector('.ad-form');
 const adFormFieldsets = adForm.querySelector('fieldset');
@@ -8,7 +8,8 @@ const adFormFilterFildsets  = adForm.querySelector('fieldset');
 const titleInput = adForm.querySelector('#title');
 const priceInput = adForm.querySelector('#price');
 const typeInput = adForm.querySelector('#type');
-
+const roomInput = adForm.querySelector('#room_number');
+const capacityInput = adForm.querySelector('#capacity');
 
 function changeStateAdFrom(isEnablad) {
   if (isEnablad) {
@@ -86,6 +87,24 @@ const initTypeEvent = () => {
     const minValue = getPriceMinValue( evt.target.value);
 
     priceInput.placeholder = minValue;
+    priceInput.min = minValue;
+  });
+};
+
+const initRoomEvent = () => {
+  roomInput.addEventListener('change', (evt) => {
+
+    const errorMassage = getRoomErrorMassage(+evt.target.value);
+
+
+  });
+};
+
+const initCapacityEvent = () => {
+  capacityInput.addEventListener('change', (evt) => {
+
+    const select = getCapacityChange(evt.target.value);
+
   });
 };
 
@@ -93,6 +112,8 @@ const initEvent = () => {
   initTitleEvent();
   initPriceEvent();
   initTypeEvent();
+  initRoomEvent();
+  initCapacityEvent();
 };
 
 export { enabladForm, disabledForm, initEvent };

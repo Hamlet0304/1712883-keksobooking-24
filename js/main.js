@@ -1,7 +1,7 @@
 import {TYPES, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS} from './data.js';
 import {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision } from './util.js';
 import { randerPopup } from './setup.js';
-import { enabladForm, disabledForm, initEvent } from './form.js';
+import { initEvent } from './form.js';
 
 
 console.log(getRandomNumberFromRange(10, 15));

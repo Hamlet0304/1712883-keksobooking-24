@@ -10,9 +10,9 @@ const getRandomNumberFromRangeByPrecision = function (from, at, presicion) {
 
 export {getRandomNumberFromRange ,getRandomNumberFromRangeByPrecision };
 
-const getPriceMinValue = function (offerPrice) {
+const getPriceMinValue = function (offerType) {
 
-  switch (offerPrice) {
+  switch (offerType) {
     case OfferType.FLAT:
       return OfferPrice.FLAT;
     case OfferType.BUNGALOW:
@@ -27,4 +27,22 @@ const getPriceMinValue = function (offerPrice) {
 };
 
 
-export { getPriceMinValue };
+const getRoomErrorMassage = function (room , capacity) {
+
+  let errorMassage = '';
+  if (room === 1 && capacity !== 1) {
+    errorMassage = 'ошибка 1 комната — «для 1 гостя»';
+  }
+  if (room === 2 && capacity !== 1 && capacity !== 2) {
+    errorMassage = 'ошибка 2 комнаты — «для 2 гостей» или «для 1 гостя»';
+  }
+  if (room === 3 && capacity !== 1 && capacity !== 2 && capacity !== 3) {
+    errorMassage = '3 комнаты — «для 3 гостей», «для 2 гостей» или «для 1 гостя»';
+  }
+  if (room === 100 && capacity !== 0) {
+    errorMassage = 'ошибка 100 комнат — «не для гостей».';
+  }
+  return errorMassage;
+};
+
+export { getPriceMinValue , getRoomErrorMassage};
