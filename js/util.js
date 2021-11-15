@@ -1,4 +1,4 @@
-import { OfferPrice ,OfferType } from './data.js';
+import { OfferPrice ,OfferType,roomsToOptions  } from './data.js';
 
 const getRandomNumberFromRange = function (from, at) {
   return Math.floor(Math.random() * (from - at + 1)) + at;
@@ -30,16 +30,16 @@ const getPriceMinValue = function (offerType) {
 const getRoomErrorMassage = function (room , capacity) {
 
   let errorMassage = '';
-  if (room === 1 && capacity !== 1) {
+  if (room === roomsToOptions.FIRST && capacity !== roomsToOptions.FIRST) {
     errorMassage = 'ошибка 1 комната — «для 1 гостя»';
   }
-  if (room === 2 && capacity !== 1 && capacity !== 2) {
+  if (room === roomsToOptions.SECOND && capacity !== roomsToOptions.FIRST && capacity !== roomsToOptions.SECOND) {
     errorMassage = 'ошибка 2 комнаты — «для 2 гостей» или «для 1 гостя»';
   }
-  if (room === 3 && capacity !== 1 && capacity !== 2 && capacity !== 3) {
+  if (room === roomsToOptions.THIRD && capacity !== roomsToOptions.FIRST && capacity !== roomsToOptions.SECOND && capacity !== roomsToOptions.THIRD) {
     errorMassage = '3 комнаты — «для 3 гостей», «для 2 гостей» или «для 1 гостя»';
   }
-  if (room === 100 && capacity !== 0) {
+  if (room === roomsToOptions.HUNDRED && capacity !== roomsToOptions.ZERO) {
     errorMassage = 'ошибка 100 комнат — «не для гостей».';
   }
   return errorMassage;

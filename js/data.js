@@ -1,7 +1,7 @@
 const OfferType = { FLAT: 'flat', BUNGALOW: 'bungalow', HOUSE: 'house', PALACE: 'palace', HOTEL:'hotel'};
 const TYPES = [OfferType.PALACE, OfferType.FLAT, OfferType.HOUSE, OfferType.BUNGALOW, OfferType.HOTEL];
 const OfferPrice = { FLAT: 1000, BUNGALOW: 0, HOUSE: 5000, PALACE: 10000, HOTEL: 3000 };
-
+const roomsToOptions = { FIRST: 1, SECOND: 2, THIRD: 3, HUNDRED :100, ZERO :0};
 
 const CHECKINS = ['12:00', '13:00', '14:00'];
 const CHECKOUTS = ['12:00', '13:00', '14:00'];
@@ -13,4 +13,4 @@ const TITLES = ['rent room' , 'rent flat', 'rent bungalow', 'rent house', 'rent 
 const ROOMS = ['big room', 'small room', 'medium room'];
 const DESCRIPTIONS = ['Сдам уютною квартиру' ,'Сдам шикарный номер','Сдам просторную комнату','Посуточная аренда'];
 
-export { TYPES, OfferType, OfferPrice, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS};
+export { TYPES, OfferType, OfferPrice,roomsToOptions, CHECKINS, CHECKOUTS, FEATURES_ALL, PHOTOS_ALL, TITLES, ROOMS, DESCRIPTIONS};

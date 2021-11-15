@@ -94,7 +94,7 @@ const initTypeEvent = () => {
 const initRoomEvent = () => {
   roomInput.addEventListener('change', (evt) => {
 
-    const errorMassage = getRoomErrorMassage(+evt.target.value);
+    const setCustomValidity = getRoomErrorMassage(+evt.target.value);
 
 
   });
@@ -102,8 +102,6 @@ const initRoomEvent = () => {
 
 const initCapacityEvent = () => {
   capacityInput.addEventListener('change', (evt) => {
-
-    const select = getCapacityChange(evt.target.value);
 
   });
 };
